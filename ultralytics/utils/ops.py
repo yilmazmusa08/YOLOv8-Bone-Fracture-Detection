@@ -61,10 +61,12 @@ def coco80_to_coco91_class():  #
     For details see https://tech.amikelive.com/node-718/what-object-categories-labels-are-in-coco-dataset/.
 
     Example:
+        ```python
         a = np.loadtxt('data/coco.names', dtype='str', delimiter='\n')
         b = np.loadtxt('data/coco_paper.names', dtype='str', delimiter='\n')
         x1 = [list(a[i] == b).index(True) + 1 for i in range(80)]  # darknet to coco
         x2 = [list(b[i] == a).index(True) if any(b[i] == a) else None for i in range(91)]  # coco to darknet
+        ```
     """
     return [
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 31, 32, 33, 34,
@@ -321,7 +323,7 @@ def scale_image(masks, im0_shape, ratio_pad=None):
     Takes a mask, and resizes it to the original image size
 
     Args:
-      masks (torch.Tensor): resized and padded masks/images, [h, w, num]/[h, w, 3].
+      masks (np.ndarray): resized and padded masks/images, [h, w, num]/[h, w, 3].
       im0_shape (tuple): the original image shape
       ratio_pad (tuple): the ratio of the padding to the original image.
 
@@ -344,9 +346,6 @@ def scale_image(masks, im0_shape, ratio_pad=None):
     if len(masks.shape) < 2:
         raise ValueError(f'"len of masks shape" should be 2 or 3, but got {len(masks.shape)}')
     masks = masks[top:bottom, left:right]
-    # masks = masks.permute(2, 0, 1).contiguous()
-    # masks = F.interpolate(masks[None], im0_shape[:2], mode='bilinear', align_corners=False)[0]
-    # masks = masks.permute(1, 2, 0).contiguous()
     masks = cv2.resize(masks, (im0_shape[1], im0_shape[0]))
     if len(masks.shape) == 2:
         masks = masks[:, :, None]

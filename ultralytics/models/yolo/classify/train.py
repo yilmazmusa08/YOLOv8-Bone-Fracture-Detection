@@ -57,7 +57,7 @@ class ClassificationTrainer(BaseTrainer):
             self.model, _ = attempt_load_one_weight(model, device='cpu')
             for p in self.model.parameters():
                 p.requires_grad = True  # for training
-        elif model.endswith('.yaml'):
+        elif model.split('.')[-1] in ('yaml', 'yml'):
             self.model = self.get_model(cfg=model)
         elif model in torchvision.models.__dict__:
             self.model = torchvision.models.__dict__[model](weights='IMAGENET1K_V1' if self.args.pretrained else None)
@@ -135,11 +135,12 @@ class ClassificationTrainer(BaseTrainer):
 
     def plot_training_samples(self, batch, ni):
         """Plots training samples with their annotations."""
-        plot_images(images=batch['img'],
-                    batch_idx=torch.arange(len(batch['img'])),
-                    cls=batch['cls'].squeeze(-1),
-                    fname=self.save_dir / f'train_batch{ni}.jpg',
-                    on_plot=self.on_plot)
+        plot_images(
+            images=batch['img'],
+            batch_idx=torch.arange(len(batch['img'])),
+            cls=batch['cls'].view(-1),  # warning: use .view(), not .squeeze() for Classify models
+            fname=self.save_dir / f'train_batch{ni}.jpg',
+            on_plot=self.on_plot)
 
 
 def train(cfg=DEFAULT_CFG, use_python=False):
