@@ -16,7 +16,6 @@ def color_list():
 
     return [hex2rgb(h) for h in TABLEAU_COLORS.values()]
 
-
 colors = color_list()
 
 
