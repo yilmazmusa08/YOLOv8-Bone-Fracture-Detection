@@ -6,7 +6,6 @@ import numpy as np
 import torch
 import torchvision.transforms as transforms
 from matplotlib.colors import TABLEAU_COLORS
-
 from ultralytics import YOLO
 
 
