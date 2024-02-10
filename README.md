@@ -4,9 +4,7 @@ Model Description:
 
 Detect and recognize bone fractures, implants, and other abnormalities in X-ray images with bounding box localization and label output. 
 
- 
-
-Developed by: Musa Yilmaz / Open Institue of Technology 
+Fine-tuned by: Musa Yilmaz / Open Institue of Technology 
 
 Model type: Object Detection & Recognition 
 
@@ -18,7 +16,7 @@ Other: 0.7%
 
  
 
-License: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 
+License: GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007 
 
 Finetuned from model: YOLOv8 
 
