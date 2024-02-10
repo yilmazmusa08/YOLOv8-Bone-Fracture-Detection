@@ -16,9 +16,9 @@ Model type: Object Detection & Recognition
 
 Language(s): 
 
-Python: 97.9%  
+Python: 99.3%  
 
-Dockerfile: 2.1% 
+Other: 0.7% 
 
  
 
@@ -26,7 +26,7 @@ License: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
 
 Finetuned from model: YOLOv8 
 
-Repository: https://github.com/yilmazmusa08/YOLOv7-Bone-Fracture-Detection 
+Repository: https://github.com/yilmazmusa08/YOLOv8-Bone-Fracture-Detection 
 
  
 
@@ -62,33 +62,21 @@ Misuse Potential: Risk of misuse if the model is used for unauthorized purposes.
 
 How to Get Started with the Model 
 
-Use the code below to get started with the model. 
+Go to /App directory, use command: 
+
+python streamlit run app.py 
 
  
 
 Training Details 
 
-Training Data 
+Training Data  
 
-[More Information Needed] 
+Train Set: 1630 Images (71%) 
 
-  
+Validation Set:  440 Images (19%) 
 
-Training Procedure 
-
-Preprocessing [optional] 
-
-[More Information Needed] 
-
-  
-
-Training Hyperparameters 
-
-Training regime: [More Information Needed] 
-
-Speeds, Sizes, Times [optional] 
-
-[More Information Needed] 
+Test Set:  220 Images (10%) 
 
   
 
@@ -96,7 +84,9 @@ Evaluation
 
 Performance Metrics: 
 
-Accuracy: 92% 
+Accuracy (Detection): 80% 
+
+Accuracy (Recognition): 65% 
 
 Citation: 
 
