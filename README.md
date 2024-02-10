@@ -1,9 +1,5 @@
 Model Card: YOLOv8-Bone-Fracture-Detection 
 
-  
-
-Model Details: 
-
 Model Description:  
 
 Detect and recognize bone fractures, implants, and other abnormalities in X-ray images with bounding box localization and label output. 
@@ -68,9 +64,11 @@ python streamlit run app.py
 
  
 
-Training Details 
+Training Details: 
 
-Training Data  
+The training data originates from the "Bone Fracture v2" dataset available on Roboflow, accessible through the link provided. 
+
+Dataset link: https://universe.roboflow.com/capjamesg/bone-fracture-v2/dataset/3 
 
 Train Set: 1630 Images (71%) 
 
@@ -102,9 +100,7 @@ BibTeX:
 
   date = {2023-1-10}, 
 
-  url = {https://github.com/ultralytics/ultralytics} 
-
-} 
+  url = {https://github.com/ultralytics/ultralytics}} 
 
 APA: 
 
